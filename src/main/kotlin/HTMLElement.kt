@@ -4,6 +4,7 @@ class HTMLElement(private val StringElement: String) {
 
     private val rawStringTag: String;
     val nodeName: String;
+    val innerHTML: String?;
 
     private fun matchTagName(tag: String): String {
         val reg = Regex("<([^\\s>]+)(\\s|>)+");
@@ -14,9 +15,21 @@ class HTMLElement(private val StringElement: String) {
         } else throw error("Failed to parse node name.");
     }
 
+    private fun getInnerHTML(tag: String, nodeNameUppercase: String): String? {
+        val nodeName = nodeNameUppercase.lowercase();
+        val reg = Regex("<$nodeName(.*?)>(.*?)</$nodeName>");
+
+        val innerHTML = reg.find(tag);
+
+        if (innerHTML != null) {
+            return innerHTML.groupValues.get(2);
+        } else return null;
+    }
+
     init {
         this.rawStringTag = StringElement;
         this.nodeName = matchTagName(StringElement);
+        this.innerHTML = getInnerHTML(StringElement, this.nodeName);
     }
 
     fun getAttribute(name: String): String? {
