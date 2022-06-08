@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="main.css" type="text/css" rel="stylesheet">
+    <title>Kotlin-dom</title>
+</head>
+<body>
+    <main>
+        <div class="top">
+            <h1>Kotlin-dom</h1>
+            <h4>Library concept</h4>
+    
+            <a href="./download/kotlin-dom.jar" download><button>Download</button></a>
+        </div>
+
+        <div class="code">
+            <p>Initialize a new DOM object by performing an HTTP get request using kotlin-dom's built in fetch method.</p>
+            <code>
+                var dom = fetch('https://example.com')
+            </code>
+        </div>
+
+        <div class="code">
+            <p>Now utilize the DOM object like the JavaScript Web API dom, for example:</p>
+            <code>
+                var logo = dom.getElementById("logo")<br/>
+                var logoSrc = logo.getAttribute("src")<br/><br/>
+
+                println(logoSrc)
+            </code>
+        </div>
+    </main>
+
+</body>
+</html>
